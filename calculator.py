@@ -13,7 +13,7 @@ st.text_input("", st.session_state.expression, key="display", disabled=True)
 
 # Function to update expression
 def press(key):
-    if key == "C":
+    if key == "Clear":
         st.session_state.expression = ""
     elif key == "=":
         try:
