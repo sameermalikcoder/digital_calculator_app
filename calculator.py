@@ -8,8 +8,9 @@ if "expression" not in st.session_state:
 
 st.title("Digital Calculator")
 
-# Display the expression
-st.text_input("", st.session_state.expression, key="display", disabled=True)
+# Display (use st.empty for instant updates)
+display = st.empty()
+#st.text_input("", st.session_state.expression, key="display", disabled=True)
 
 # Function to update expression
 def press(key):
@@ -36,5 +37,6 @@ buttons = [
 for row in buttons:
     cols = st.columns(len(row))
     for i, key in enumerate(row):
-        if cols[i].button(key):
+        if cols[i].button(key, use_container_width=True):
             press(key)
+            display.text_input("",st.session_state.expression,disabled=True)
